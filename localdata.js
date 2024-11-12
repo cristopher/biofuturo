@@ -1,3 +1,5 @@
+import {make, the, these} from './wetrust.js';
+
 if (storageAvailable('localStorage')) {
     checkDatabase();
 }
