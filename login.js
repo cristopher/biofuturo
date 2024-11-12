@@ -1,10 +1,5 @@
 import {make, the, these} from './wetrust.js';
 
-botonLogin
-password
-usuario
-
-
 the("botonLogin").onclick = function(e){
     var usu = ""
     var pass =""
@@ -31,12 +26,13 @@ the("botonLogin").onclick = function(e){
     datos.append("nombre", usu)
     datos.append("pass", pass)
 
-    fetch("https://app.biofuturo.cl/android/login", {method: 'POST',body: datos}).then(response => response.blob())
+    fetch("https://app.biofuturo.cl/android/login", {method: 'POST',body: datos}).then(response => response.json())
     .then(data => {
 
         if (data.resultado ==  true){
             the("login").classList.add("d-none")
             the("inicio").classList.remove("d-none")
+            the("navInicio").classList.remove("d-none")
         }else{
             make.alert('<p class="text-center">No Autorizado</p>', true) 
         }
